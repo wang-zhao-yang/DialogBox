@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DialogBox</title>
+    <style>
+        #rejectClick {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background: #999;
+            z-index: 99;
+            display: none;
+        }
+        #dialogBox {
+            height: 400px;
+            width: 400px;
+            border: 1px solid #ccc;
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            margin-left: -200px;
+            z-index: 100;
+            display: none;
+        }
+        #dialogBox h1.title {
+            font-size: 12px;
+            margin: 0px;
+            padding: 0px;
+            height: 30px;
+            background: #dfd;
+        }
+        #dialogBox h1 span {
+            font-weight: normal;
+            padding: 2px 5px;
+            border: 1px solid #acf;
+            position: relative;
+            left: 360px;
+            top: 6px;
+            cursor: pointer;
+        }
+        #dialogBox #content {
+            background: #ee9;
+            height: 370px;
+            overflow: scroll;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#dialogBtn").click(function () {
+                var url = $("#url").val();
+                if (!url) {
+                    url = "dialogcontent.html";
+                }
+                $("#dialogBox").find("#content").load(url).end().fadeIn(1000);
+                $("#rejectClick").css({
+                    opacity: 0.3,
+                    display: "block"
+                });
+            });
+            $("#dialogBox span").click(function () {
+                $("#dialogBox").fadeOut(1000);
+                $("#rejectClick").css("display", "none");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="loadDialog"><input type="text" id="url"><input type="button" id="dialogBtn"></div>
+    <div>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+        <h1>自定义的对话框</h1>
+    </div>
+    <div id="rejectClick"></div>
+    <div id="dialogBox">
+        <h1 class="title"><span>关闭</span></h1>
+        <div id="content"></div>
+    </div>
+</body>
+</html>
